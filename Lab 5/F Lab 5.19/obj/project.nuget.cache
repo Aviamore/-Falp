@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DRgBFZrjscXiFA0A4CWEU1urZs+JR/exS6TH1KNxxxOBgXR0SE9lx+W3TnelWxMcSn/2HLOZRfvoB/f/3EYSww==",
+  "success": true,
+  "projectFilePath": "E:\\Уник\\Lab 5.19\\Lab 5.19.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aviam\\.nuget\\packages\\fsharp.core\\4.7.2\\fsharp.core.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
