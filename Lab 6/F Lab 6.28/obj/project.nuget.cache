@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9hP++UYxukP+JApGO3P9GPISifrBGHhd8LLOPRvIlXJgV8ccQ/2E5Xu01UdQWqjnr0lqKXld26LudbpyWOBl/Q==",
+  "success": true,
+  "projectFilePath": "E:\\Уник\\F Lab 6.28\\F Lab 6.28.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aviam\\.nuget\\packages\\fsharp.core\\4.7.2\\fsharp.core.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
