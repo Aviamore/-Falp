@@ -40,3 +40,7 @@ father(X):-father(Y,X),write(Y).
 %12 zadaniye
 wire(X,Y):-woman(X),man(Y),parent(X,G),parent(Y,G).
 wife(X):-wire(Y,X),write(Y).
+
+%13 zadaniye
+grand_ma(X, Y):-woman(X),parent(X,Z),parent(Z,Y),!.
+grand_mas(X):-grand_ma(X,Y),write(X),nl.
