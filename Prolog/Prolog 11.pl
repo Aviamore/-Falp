@@ -38,5 +38,5 @@ father(X,Y):-man(X),parent(X,Y).
 father(X):-father(Y,X),write(Y).
 
 %12 zadaniye
-wife(X,Y):-woman(X),parent(X,Z),parent(Y,Z),nl.
-wife(X):-wife(X,Y), write(X), nl,!.
+wire(X,Y):-woman(X),man(Y),parent(X,G),parent(Y,G).
+wife(X):-wire(Y,X),write(Y).
