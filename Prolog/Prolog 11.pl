@@ -33,5 +33,10 @@ parent(oleg,egor).
 parent(ksyha,oleg).
 parent(petr,oleg).
 
+%11 zadaniye
 father(X,Y):-man(X),parent(X,Y).
 father(X):-father(Y,X),write(Y).
+
+%12 zadaniye
+wife(X,Y):-woman(X),parent(X,Z),parent(Y,Z),nl.
+wife(X):-wife(X,Y), write(X), nl,!.
