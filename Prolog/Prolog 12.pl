@@ -31,6 +31,25 @@ sumcifr(X,Y):-X1 is X div 10, sumcifr(X1,Y1),
 
 mult(X,Y):-max_notprime(X,D),sumcifr(X,S),Y is D*S.
 
+%13 zadaniye
+prost(X,X):- true,!.
+prost(X,Y):- X>Y, 0 is X mod Y -> false;Y1 is Y+1,prost(X,Y1).
+prost(X):- X>1,prost(X,2),!;false,!.
+
+count(B,C,CNT,N,Z):-NM is (N*N+B*N+C),(prost(NM),NCNT is CNT+1,NN is N+1,
+                                       count(B,C,NCNT,NN,Z);Z is CNT),!.
+count(B,C,Z):-count(B,C,0,0,Z).
+
+
+polynom(999,999,M,PR,V):- count(999,999,M1),(M1>M,NPR is 999*999;NPR is PR),
+    V is NPR,!.
+polynom(B,C,M,PR,V):-THS is 1000,count(B,C,M1),(M1 > M,(MAX is M1,NPR is B*C);
+                                               MAX is M,
+    NPR is PR),(THS > C,(C1 is C+1,B1 is B);B1 is B+1,C1 is -999),
+    polynom(B1,C1,MAX,NPR,V).
+
+find(V):-polynom(-999,-999,0,0,V).
+
 %14 zadaniye
 length_list([],0):-!.
 length_list([_|T], L) :- length(T,I), L is I + 1.
