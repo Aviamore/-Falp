@@ -60,3 +60,16 @@ readList(I,[X|T]) :- write('input - '),read(X), I1 is I - 1, readList(I1, T).
 
 write_list([]) :- !.
 write_list([X|T]) :- write(X), nl, write_list(T).
+
+%15 zadaniye (3)
+find_max([],Max,Max):-!.
+find_max([H|T],Max,Result):-(H>Max,Max1 is H;
+                            Max1 is Max),
+    find_max(T,Max1,Result).
+find_max([H|T],Max):-find_max(T,H,Max),!.
+
+find_ind([],_,_,_):- false.
+find_ind([H|T],N,I,V):-I is N,V is H;I1 is I+1,find_ind(T,N,I1,V).
+find_ind([H|T],N,V):-find_ind([H|T],N,0,V),!.
+
+check_ind([H|T],N):-find_max([H|T],M),find_ind([H|T],N,M).
