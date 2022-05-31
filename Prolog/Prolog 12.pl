@@ -30,3 +30,14 @@ sumcifr(X,Y):-X1 is X div 10, sumcifr(X1,Y1),
      (P is X mod 10, P<5, Y is Y1+P;Y is Y1),!.
 
 mult(X,Y):-max_notprime(X,D),sumcifr(X,S),Y is D*S.
+
+%14 zadaniye
+length_list([],0):-!.
+length_list([_|T], L) :- length(T,I), L is I + 1.
+
+%write read list
+readList(0,[]) :- !.
+readList(I,[X|T]) :- write('input - '),read(X), I1 is I - 1, readList(I1, T).
+
+write_list([]) :- !.
+write_list([X|T]) :- write(X), nl, write_list(T).
