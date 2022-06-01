@@ -73,3 +73,28 @@ find_ind([H|T],N,I,V):-I is N,V is H;I1 is I+1,find_ind(T,N,I1,V).
 find_ind([H|T],N,V):-find_ind([H|T],N,0,V),!.
 
 check_ind([H|T],N):-find_max([H|T],M),find_ind([H|T],N,M).
+
+%16 zadaniye (4)
+find_ind_max([],_,MC,_,MC).
+find_ind_max([H|T],M,MC,IND,Res):-(H>M,MAX is H,MAXC is IND;MAX is M, MAXC is MC),
+    IND1 is IND+1,find_ind_max(T,MAX,MAXC,IND1,Res).
+find_ind_max([H|T],Res):-find_ind_max(T,H,0,1,Res),!.
+
+% delete with index
+del([],_,_,_).
+del([_|T],C,C,T).
+del([H|T],IND,C,[H|L]):-IND1 is IND+1,del(T,IND1,C,L),!.
+del([H|T],C,A):-del([H|T],0,C,A).
+
+sorted([],_):-!.
+sorted([H|T],[L|T1]):-find_max([H|T],L),find_ind_max([H|T],M),del([H|T],M,NL),
+    sorted(NL,T1),!.
+
+% find ind with elem
+find_el([],_,_,A):-A is -1,false.
+find_el([H|T],IND,EL,A):-EL is H,A is IND,true;IND1 is IND+1,find_el(T,IND1,EL,A).
+find_el([H|T],EL,A):-find_el([H|T],0,EL,A),!.
+
+sorted_ind([],_,_).
+sorted_ind([H|T],LST,[H1|T1]):-find_el(LST,H,H1),sorted_ind(T,LST,T1).
+sorted_ind(LIST,OUTPUT):-sorted(LIST,SCND),sorted_ind(SCND,LIST,OUTPUT),!.
