@@ -61,7 +61,7 @@ readList(I,[X|T]) :- write('input - '),read(X), I1 is I - 1, readList(I1, T).
 write_list([]) :- !.
 write_list([X|T]) :- write(X), nl, write_list(T).
 
-%15 zadaniye (3)
+%15 zadaniye 
 find_max([],Max,Max):-!.
 find_max([H|T],Max,Result):-(H>Max,Max1 is H;
                             Max1 is Max),
@@ -74,7 +74,7 @@ find_ind([H|T],N,V):-find_ind([H|T],N,0,V),!.
 
 check_ind([H|T],N):-find_max([H|T],M),find_ind([H|T],N,M).
 
-%16 zadaniye (4)
+%16 zadaniye 
 find_ind_max([],_,MC,_,MC).
 find_ind_max([H|T],M,MC,IND,Res):-(H>M,MAX is H,MAXC is IND;MAX is M, MAXC is MC),
     IND1 is IND+1,find_ind_max(T,MAX,MAXC,IND1,Res).
@@ -98,3 +98,9 @@ find_el([H|T],EL,A):-find_el([H|T],0,EL,A),!.
 sorted_ind([],_,_).
 sorted_ind([H|T],LST,[H1|T1]):-find_el(LST,H,H1),sorted_ind(T,LST,T1).
 sorted_ind(LIST,OUTPUT):-sorted(LIST,SCND),sorted_ind(SCND,LIST,OUTPUT),!.
+
+%17 zadaniye 
+count_interval([],_,_,C,C).
+count_interval([H|T],A,B,C,Count):-((A<H,B>H),C1 is Count+1;C1 is Count),
+    count_interval(T,A,B,C,C1).
+count_interval(List,A,B,C):-count_interval(List,A,B,C,0),!.
